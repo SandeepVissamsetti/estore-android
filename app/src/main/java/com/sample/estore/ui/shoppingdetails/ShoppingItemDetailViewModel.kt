@@ -1,4 +1,7 @@
 package com.sample.estore.ui.shoppingdetails
 
-class ShoppingItemDetailViewModel {
+import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.ViewModel
+
+class ShoppingItemDetailViewModel @ViewModelInject constructor() : ViewModel() {
 }

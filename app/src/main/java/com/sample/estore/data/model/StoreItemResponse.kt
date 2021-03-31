@@ -34,8 +34,8 @@ data class BrandDetails(
 data class Brand(@SerializedName("name") val name: String)
 
 fun Product.toDomain(): StoreItem = StoreItem(
-    this.name, this.sku, this.finalPrice,
-    this.price,
+    this.name, this.sku, this.finalPrice.toString(),
+    this.price.toString(),
     this.shortDescription,
     this.brandDetails.brand.name,
     this.brandDetails.images?.let { it[0].url }

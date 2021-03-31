@@ -7,7 +7,7 @@ import io.reactivex.Observable
 import io.reactivex.Scheduler
 import javax.inject.Inject
 
-class EStoreApiClient @Inject constructor(
+class StoreApiClient @Inject constructor(
     private val apiService: StoreApiService,
     @BackgroundScheduler private val backgroundScheduler: Scheduler
 ) : StoreRemoteDataSource {

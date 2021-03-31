@@ -5,9 +5,11 @@ import com.sample.estore.domain.model.StoreItem
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class GetShoppingListUseCase @Inject constructor(private val storeRepository: StoreRepository) :
-    BaseUseCase<Nothing, Observable<List<StoreItem>>> {
-    override fun execute(params: Nothing): Observable<List<StoreItem>> {
-       return storeRepository.getStoreItems(1,30)
+open class GetShoppingListUseCase @Inject constructor(private val storeRepository: StoreRepository) :
+    BaseUseCase<PagingData, Observable<List<StoreItem>>> {
+    override fun execute(params: PagingData): Observable<List<StoreItem>> {
+        return storeRepository.getStoreItems(params.page, params.itemsCount)
     }
 }
+
+data class PagingData(val page: Int, val itemsCount: Int)
