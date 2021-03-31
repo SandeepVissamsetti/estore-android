@@ -2,13 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
 
         <variable
             name="model"
             type="com.sample.estore.domain.model.StoreItem" />
     </data>
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:text="@{model.brandName}"
             app:layout_constraintEnd_toStartOf="@id/favoriteImageView"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,10 +41,11 @@
             android:id="@+id/nameTextView"
             style="@style/Base.TextView.SubTitle"
             android:layout_width="0dp"
-            android:text="@{model.name}"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="2dp"
+            android:singleLine="true"
+            android:text="@{model.name}"
             app:layout_constraintEnd_toStartOf="@id/favoriteImageView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/brandNameTextView"
@@ -52,11 +53,13 @@
 
         <TextView
             android:id="@+id/priceTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{model.price}"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="2dp"
+            style="@style/Base.TextView.SubTitle"
+            android:text="@{@string/price(model.price)}"
+            app:layout_constraintEnd_toStartOf="@id/favoriteImageView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/nameTextView"
             tools:text="$129.95" />
