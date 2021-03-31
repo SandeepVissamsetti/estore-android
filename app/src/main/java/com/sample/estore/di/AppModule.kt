@@ -1,5 +1,7 @@
 package com.sample.estore.di
 
+import android.app.Application
+import android.content.Context
 import com.google.gson.Gson
 import com.sample.estore.ui.providers.ImageResourceLoader
 import com.sample.estore.ui.providers.ImageResourceLoaderImpl
@@ -27,6 +29,10 @@ class AppModule {
     @Singleton
     @Provides
     fun provideGson(): Gson = Gson()
+
+    @Singleton
+    @Provides
+    fun provideContext(application: Application): Context = application
 
     @Singleton
     @Provides

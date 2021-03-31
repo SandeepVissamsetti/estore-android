@@ -17,8 +17,8 @@ data class Embedded(
 )
 
 data class Product(
-    @SerializedName("price") val price: Int,
-    @SerializedName("final_price") val finalPrice: Int,
+    @SerializedName("price") val price: Double,
+    @SerializedName("final_price") val finalPrice: Double,
     @SerializedName("sku") val sku: String,
     @SerializedName("name") val name: String,
     @SerializedName("short_description") val shortDescription: String,

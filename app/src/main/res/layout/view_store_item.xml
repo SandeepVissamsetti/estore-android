@@ -2,10 +2,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="model"
+            type="com.sample.estore.domain.model.StoreItem" />
+    </data>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/itemImageView"
@@ -24,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:text="@{model.brandName}"
             app:layout_constraintEnd_toStartOf="@id/favoriteImageView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/itemImageView"
@@ -33,6 +41,7 @@
             android:id="@+id/nameTextView"
             style="@style/Base.TextView.SubTitle"
             android:layout_width="0dp"
+            android:text="@{model.name}"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
@@ -45,6 +54,7 @@
             android:id="@+id/priceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{model.price}"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"

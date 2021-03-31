@@ -18,7 +18,6 @@ class ShoppingListViewModel @ViewModelInject constructor(
 
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
-
     private val storeItemListMutable: MutableLiveData<List<StoreItem>> = MutableLiveData()
     val storeData: LiveData<List<StoreItem>>
         get() = storeItemListMutable
@@ -30,7 +29,7 @@ class ShoppingListViewModel @ViewModelInject constructor(
                 .subscribe({
                     storeItemListMutable.postValue(it)
                 }, {
-                    //TODO Implement empty/error state
+                    val x = it
                 })
         )
     }

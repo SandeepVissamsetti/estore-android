@@ -12,8 +12,10 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
+import javax.inject.Inject
 
-class ImageResourceLoaderImpl(private val context: Context) : ImageResourceLoader {
+class ImageResourceLoaderImpl @Inject constructor(private val context: Context) :
+    ImageResourceLoader {
 
     private val glideRequestManager: RequestManager = Glide.with(context)
 
