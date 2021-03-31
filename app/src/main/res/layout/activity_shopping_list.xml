@@ -17,6 +17,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:title="THE ICONIC "
+            app:titleTextColor="@color/black"
             app:titleTextAppearance="@style/Toolbar" />
 
         <androidx.recyclerview.widget.RecyclerView
