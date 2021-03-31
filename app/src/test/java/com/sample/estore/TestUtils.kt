@@ -9,15 +9,15 @@ class TestUtils {
         const val PAGE_ID = 1
         const val PAGE_COUNT = 30
 
-        fun createStoreData() = listOf(StoreItem("name", "1234", "5", "10", "des", "brand", ""))
+        fun createStoreData() = listOf(StoreItem("name", "1234", "5.0", "10.0", "des", "brand", ""))
 
         fun createStoreResponse() =
             StoreItemResponse(Embedded(listOf(createProduct())))
 
         private fun createProduct(): Product {
             return Product(
-                10,
-                5,
+                10.00,
+                5.00,
                 "1234",
                 "name",
                 "des",
