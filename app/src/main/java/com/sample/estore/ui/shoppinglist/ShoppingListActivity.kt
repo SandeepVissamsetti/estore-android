@@ -1,5 +1,6 @@
 package com.sample.estore.ui.shoppinglist
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +9,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sample.estore.R
 import com.sample.estore.databinding.ActivityShoppingListBinding
+import com.sample.estore.domain.model.StoreItem
 import com.sample.estore.ui.providers.ImageResourceLoader
+import com.sample.estore.ui.shoppingdetails.ShoppingItemDetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -55,7 +58,9 @@ class ShoppingListActivity : AppCompatActivity() {
             )
             addItemDecoration(itemDecoration)
             layoutManager = GridLayoutManager(this.context, ITEMS_PER_ROW)
-            storeAdapter = StoreAdapter(mutableListOf(), imageResourceLoader)
+            storeAdapter = StoreAdapter(mutableListOf(), imageResourceLoader) {
+                navigateToDetail(it)
+            }
             adapter = storeAdapter
             addOnScrollListener(object :
                 InfiniteScrollListener(layoutManager as GridLayoutManager) {
@@ -64,5 +69,11 @@ class ShoppingListActivity : AppCompatActivity() {
                 }
             })
         }
+    }
+
+    private fun navigateToDetail(storeItem: StoreItem) {
+        val intent = Intent(this, ShoppingItemDetailActivity::class.java)
+        intent.putExtra(ShoppingItemDetailActivity.MODEL, storeItem)
+        startActivity(intent)
     }
 }

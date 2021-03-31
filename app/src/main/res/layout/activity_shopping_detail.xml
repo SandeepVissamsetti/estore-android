@@ -10,9 +10,27 @@
             type="com.sample.estore.domain.model.StoreItem" />
     </data>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_marginBottom="32dp">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@{model.brandName}"
+            app:titleTextAppearance="@style/Toolbar" />
 
         <ImageView
             android:id="@+id/heroImageView"
@@ -21,7 +39,7 @@
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
             tools:src="@drawable/ic_launcher_background" />
 
         <TextView
@@ -71,7 +89,7 @@
             android:background="@drawable/round_background"
             android:gravity="center"
             app:layout_constraintTop_toBottomOf="@id/finalPriceTextView"
-            tools:text="Add to Bag" />
+            android:text="@string/cta_text" />
 
         <View
             android:id="@+id/separator"
@@ -106,7 +124,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="@{model.shortDescription}"
+            android:text="@{model.description}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/headerDescription"
             tools:text="Short Description" />
@@ -126,4 +144,5 @@
             tools:text="SKU: 123456" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

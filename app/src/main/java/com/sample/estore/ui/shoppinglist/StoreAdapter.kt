@@ -7,13 +7,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sample.estore.BR
 import com.sample.estore.R
 import com.sample.estore.databinding.ViewStoreItemBinding
-import com.sample.estore.databinding.ViewStoreItemBindingImpl
 import com.sample.estore.domain.model.StoreItem
 import com.sample.estore.ui.providers.ImageResourceLoader
 
+typealias StoreItemAdapterClickListener = (StoreItem) -> (Unit)
+
 class StoreAdapter(
     private var storeItems: List<StoreItem>,
-    private val imageResourceLoader: ImageResourceLoader
+    private val imageResourceLoader: ImageResourceLoader,
+    private val onItemClickListener: StoreItemAdapterClickListener?
 ) :
     RecyclerView.Adapter<StoreAdapter.StoreViewHolder>() {
 
@@ -30,7 +32,9 @@ class StoreAdapter(
     }
 
     override fun onBindViewHolder(viewHolder: StoreViewHolder, position: Int) {
-        viewHolder.bind(storeItems[position])
+        val item = storeItems[position]
+        viewHolder.bind(item)
+        viewHolder.itemView.setOnClickListener { onItemClickListener?.invoke(item) }
     }
 
     fun setItems(storeItems: List<StoreItem>) {
