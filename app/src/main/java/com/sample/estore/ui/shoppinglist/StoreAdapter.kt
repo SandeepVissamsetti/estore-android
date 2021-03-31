@@ -13,7 +13,7 @@ import com.sample.estore.ui.providers.ImageResourceLoader
 typealias StoreItemAdapterClickListener = (StoreItem) -> (Unit)
 
 class StoreAdapter(
-    private var storeItems: List<StoreItem>,
+    private var storeItems: MutableList<StoreItem>,
     private val imageResourceLoader: ImageResourceLoader,
     private val onItemClickListener: StoreItemAdapterClickListener?
 ) :
@@ -38,7 +38,7 @@ class StoreAdapter(
     }
 
     fun setItems(storeItems: List<StoreItem>) {
-        this.storeItems = storeItems
+        this.storeItems.addAll(storeItems)
         notifyDataSetChanged()
     }
 

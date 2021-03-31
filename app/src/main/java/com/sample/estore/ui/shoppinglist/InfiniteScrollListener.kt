@@ -7,7 +7,7 @@ abstract class InfiniteScrollListener(private val layoutManager: GridLayoutManag
     RecyclerView.OnScrollListener() {
     private var visibleThreshold = 5
 
-    private var currentPage = 0
+    private var currentPage = 1
 
     private var previousTotalItemCount = 0
 
